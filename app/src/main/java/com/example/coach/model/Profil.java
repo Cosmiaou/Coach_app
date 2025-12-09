@@ -35,7 +35,7 @@ public class Profil {
     private void calculIndice() {
         double min = MIN_FEMME;
         double max = MAX_FEMME;
-        indice = 0;
+        indice = 1;
 
         if (sexe == 1) {
             min = MIN_HOMME;
@@ -45,7 +45,7 @@ public class Profil {
         if (img > max){
            indice = 2;
         } else if (img < min){
-            indice = 1;
+            indice = 0;
         }
     }
 
