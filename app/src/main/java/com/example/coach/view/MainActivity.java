@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
         chargeObjetsGraphiques();
         presenter = new CalculPresenter(this);
         btnCalculer.setOnClickListener(v -> btnCalculer_clic());
+        presenter.chargerProfil();
     }
 
     /**
@@ -139,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
     public void remplirChamps(Integer poids, Integer taille, Integer age, Integer sexe) {
         txtAge.setText(age.toString());
         txtPoids.setText(poids.toString());
-        txtTaille.setText(poids.toString());
+        txtTaille.setText(taille.toString());
         if (sexe == 1) {
             rdHomme.setChecked(true);
         }

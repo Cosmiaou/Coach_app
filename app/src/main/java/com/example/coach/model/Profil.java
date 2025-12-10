@@ -11,15 +11,14 @@ public class Profil {
     private static final String[] MESSAGE = {"trop faible :(", "normal :))", "trop élévé :("};
     private static final String[] IMAGE = {"maigre", "normal", "graisse"};
 
+    private Date dateMesure;
     private final Integer poids;
     private final Integer taille;
     private final Integer age;
     private final Integer sexe;
 
-    private double img;
-
-    private int indice;
-    private Date dateMesure;
+    private transient double img;
+    private transient int indice;
 
     /**
      * Constructeur. Crée le Profil avec les éléments indiqués et lance les calculs
