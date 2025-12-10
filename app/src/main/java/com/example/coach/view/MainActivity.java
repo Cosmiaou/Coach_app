@@ -128,6 +128,13 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
         }
     }
 
+    /**
+     * Rempli les champs en fonction de ceux indiqués en paramètre
+     * @param poids
+     * @param taille
+     * @param age
+     * @param sexe
+     */
     @Override
     public void remplirChamps(Integer poids, Integer taille, Integer age, Integer sexe) {
         txtAge.setText(age.toString());

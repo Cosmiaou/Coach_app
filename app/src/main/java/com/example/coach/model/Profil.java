@@ -40,7 +40,7 @@ public class Profil {
 
     /**
      * Calcul l'IMG en fonction de la taille (convertie en mètre), de l'age, du poid et du sexe
-     * @return
+     * @return double
      */
     private double calculImg() {
         double tailleM = taille / 100.0;
