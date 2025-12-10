@@ -31,6 +31,13 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
     private ImageView imgSmiley;
     private CalculPresenter presenter;
 
+    /**
+     * Méthode de génération de l'Activite
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +51,19 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
         init();
     }
 
+    /**
+     * Initialisation de la vue. Demande le chargement des objets graphiques,
+     * active le listener sur le btnCalculer et initialise CalculPresenter
+     */
     private void init() {
         chargeObjetsGraphiques();
         presenter = new CalculPresenter(this);
         btnCalculer.setOnClickListener(v -> btnCalculer_clic());
     }
 
+    /**
+     * Charge les objets graphiques
+     */
     private void chargeObjetsGraphiques(){
         txtPoids = (EditText) findViewById(R.id.txtPoids);
         txtAge = (EditText) findViewById(R.id.txtAge);
@@ -61,6 +75,11 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
         btnCalculer = (Button) findViewById(R.id.btnCalculer);
     }
 
+    /**
+     * S'active pour chaque clic du bouton calculer. Récupère les valeurs des champs indiqués. Les transforme
+     * en string et demande la création d'un profil à presenter
+     * Si tous les champs ne sont pas remplis, indique une erreur
+     */
     private void btnCalculer_clic(){
         Integer poids = 0;
         Integer age = 0;
@@ -84,6 +103,13 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
         }
     }
 
+    /**
+     * Affiche à l'utilisateur l'image appropriée (par défaut, normal), le message et l'IMG
+     * @param image
+     * @param img
+     * @param message
+     * @param normal
+     */
     @Override
     public void afficherResultat(String image, double img, String message, boolean normal) {
         int imageId = getResources().getIdentifier(image, "drawable", getPackageName());
@@ -100,6 +126,16 @@ public class MainActivity extends AppCompatActivity implements ICalculView {
         } else {
             lblResultat.setTextColor(Color.RED);
         }
-
     }
+
+    @Override
+    public void remplirChamps(Integer poids, Integer taille, Integer age, Integer sexe) {
+        txtAge.setText(age.toString());
+        txtPoids.setText(poids.toString());
+        txtTaille.setText(poids.toString());
+        if (sexe == 1) {
+            rdHomme.setChecked(true);
+        }
+    }
+
 }
